@@ -20,10 +20,13 @@ def write_状況表(損傷リスト):
     sheet = book['４月']
     # セルへ書き込む
     #sheet['D19'] = 損傷リスト['浦和']
-    row_number = find_row_number(sheet,'浦和')
-    cell_number = 'D'+str(row_number)
-    sheet[cell_number] = 損傷リスト['浦和']
-    print(row_number)
+    for key in 損傷リスト:
+        row_number = find_row_number(sheet,key)
+        if row_number == None:
+            continue
+        cell_number = 'D'+str(row_number)
+        sheet[cell_number] = 損傷リスト[key]
+        print(row_number)
 
     # 保存する
     book.save(file_name)
