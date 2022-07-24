@@ -12,5 +12,5 @@ def get_損傷リスト():
         if 所属 not in count_map:
             count_map[所属] = 0
         count_map[所属] += 1
-    print(count_map)
+    #print(count_map)
     return count_map
