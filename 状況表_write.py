@@ -4,6 +4,9 @@ def find_row_number(ws,key):
     for row in ws.iter_rows():
         row_number +=1
         所属 = row[1].value
+        if 所属 == None:
+            continue
+        所属 = 所属.replace('　', '')
         print(row_number,所属)
         if key == 所属:
             return row_number 
@@ -17,7 +20,7 @@ def write_状況表(損傷リスト):
     sheet = book['４月']
     # セルへ書き込む
     #sheet['D19'] = 損傷リスト['浦和']
-    row_number = find_row_number(sheet,'浦　和')
+    row_number = find_row_number(sheet,'浦和')
     cell_number = 'D'+str(row_number)
     sheet[cell_number] = 損傷リスト['浦和']
     print(row_number)
