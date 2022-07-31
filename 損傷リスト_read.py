@@ -1,6 +1,6 @@
 import openpyxl
-def get_損傷リスト():
-    wb = openpyxl.load_workbook('損傷リスト.xlsx')
+def get_損傷リスト(file_name):
+    wb = openpyxl.load_workbook(file_name)
     ws = wb["Sheet1"]#Sheet1を読み込む
 
 
