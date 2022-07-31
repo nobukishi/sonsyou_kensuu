@@ -1,4 +1,5 @@
 import openpyxl
+
 def find_row_number(ws,column_number,key):
     row_number = 0
     
@@ -13,12 +14,11 @@ def find_row_number(ws,column_number,key):
             return row_number 
     
     
-def write_状況表(損傷リスト):
-    file_name = '状況表.xlsx'
+def write_状況表(損傷リスト,file_name,sheet_name):
     # ブックを取得
     book = openpyxl.load_workbook(file_name)
     # シートを取得
-    sheet = book['４月']
+    sheet = book[sheet_name]
     # セルへ書き込む
     #sheet['D19'] = 損傷リスト['浦和']
     for key in 損傷リスト:
