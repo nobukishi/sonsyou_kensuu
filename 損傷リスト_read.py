@@ -4,13 +4,18 @@ def get_損傷リスト():
     ws = wb["Sheet1"]#Sheet1を読み込む
 
 
-    count_map = {}
+    syozoku_map = {}
     for row in ws.iter_rows(min_row=5):
-        所属 = row[3].value 
+        所属 = row[3].value
         if 所属 == None:
             continue
-        if 所属 not in count_map:
-            count_map[所属] = 0
-        count_map[所属] += 1
-    #print(count_map)
-    return count_map
+        金額 = row[10].value 
+        if 所属 not in syozoku_map:
+            syozoku_map[所属] = {
+                'count':0,
+                'money':0
+            }
+        syozoku_map[所属]['count']+= 1
+        syozoku_map[所属]['money']+= 金額
+    return syozoku_map
+    #print(syozoku_map)

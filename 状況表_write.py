@@ -26,14 +26,18 @@ def write_状況表(損傷リスト):
         if row_number == None:
             continue
         cell_number = 'D'+str(row_number)
-        sheet[cell_number] = 損傷リスト[key]
+        sheet[cell_number] = 損傷リスト[key]['count']
+        cell_number = 'G'+str(row_number)
+        sheet[cell_number] = 損傷リスト[key]['money']
         #print(row_number)
     for key in 損傷リスト:
-        row_number = find_row_number(sheet,23,key) #1はB列のこと
+        row_number = find_row_number(sheet,23,key) #23はX列のこと
         if row_number == None:
             continue
         cell_number = 'Z'+str(row_number)
-        sheet[cell_number] = 損傷リスト[key]
-    
+        sheet[cell_number] = 損傷リスト[key]['count']
+        cell_number = 'AC'+str(row_number)
+        sheet[cell_number] = 損傷リスト[key]['money']
+        
     # 保存する
     book.save(file_name)
